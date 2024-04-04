@@ -1,0 +1,29 @@
+<h2>Edit <%= @character.name %></h2>
+
+<%= form_with model: @character, local: true do |form| %>
+  <%= form.label :name, "Name:" %>
+  <%= form.text_field :name, value: @character.name, required: true %><br>
+
+  <%= form.label :style, "Setting Style:" %>
+  <%= form.select :style, options_for_select(@categories_style.map { |category| [category[:name], category[:name]] }, selected: @character.style), { prompt: "– –" }, class: "form-control" %><br>
+
+  <%= form.label :gender, "Gender:" %>
+  <%= form.select :gender, options_for_select(@categories_gender.map { |category| [category[:name], category[:name]] }, selected: @character.gender), { prompt: "– –" }, class: "form-control" %><br>
+
+  <%= form.label :homeland, "Homeland:" %>
+  <%= form.select :homeland, options_for_select(@categories_homeland.map { |category| [category[:name], category[:name]] }, selected: @character.homeland), { prompt: "– –" }, class: "form-control" %><br>
+
+  <%= form.label :skin_color, "Skin Color:" %>
+  <%= form.select :skin_color, options_for_select(@categories_skin_color.map { |category| [category[:name], category[:name]] }, selected: @character.skin_color), { prompt: "– –" }, class: "form-control" %><br>
+
+  <%= form.label :hair_color, "Hair Color:" %>
+  <%= form.select :hair_color, options_for_select(@categories_hair_color.map { |category| [category[:name], category[:name]] }, selected: @character.hair_color), { prompt: "– –" }, class: "form-control" %><br>
+
+  <%= form.label :likes, "Likes:" %>
+  <%= form.text_field :likes, value: @character.likes %><br>
+
+  <%= form.label :dislikes, "Dislikes:" %>
+  <%= form.text_field :dislikes, value: @character.dislikes %><br>
+  
+  <br><%= form.submit "Update Character" %>
+<% end %>

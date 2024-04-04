@@ -1,0 +1,15 @@
+<div style="padding-bottom: 10px;">
+    <h2><%= @character.name %>'s Character Sheet</h2>
+
+    <%= image_tag(@character.portrait, style: "width: 300px; height: auto;") %><br>
+
+    <h4>Setting: <%= @character.style %></h4>
+    <h4>Gender: <%= @character.gender %></h4>
+    <h4>Homeland: <%= @character.homeland %></h4>
+    <h4>Skin Color: <%= @character.skin_color %></h4>
+    <h4>Hair Color: <%= @character.hair_color %></h4>
+    <h4>Likes: <%= @character.likes %></h4>
+    <h4>Dislikes: <%= @character.dislikes %></h4>
+
+    <%= button_to "Edit Character", edit_character_path, method: :get %>
+</div>

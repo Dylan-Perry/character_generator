@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails/all"
+require 'openai'
+require 'gen_ai'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -24,4 +26,9 @@ module CharacterGenerator
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+end
+
+OpenAI.configure do |config|
+  config.access_token = Rails.application.credentials.openai[:api_key]
+  config.organization_id = Rails.application.credentials.openai[:org_id]
 end
